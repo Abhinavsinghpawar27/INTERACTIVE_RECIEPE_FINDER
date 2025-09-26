@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Recipe Finder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🍳 Recipe Finder</h1>
+            <p>Transform your ingredients into delicious meals</p>
+        </div>
+
+        <div class="search-section">
+            <div class="ingredient-input">
+                <input type="text" id="ingredientInput" placeholder="Enter an ingredient (e.g., chicken, tomatoes, rice)">
+                <button class="btn btn-secondary" onclick="addIngredient()">Add Ingredient</button>
+                <button class="btn btn-primary" onclick="findRecipes()">Find Recipes</button>
+            </div>
+
+            <div class="ingredients-display" id="ingredientsDisplay"></div>
+
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="btn btn-secondary" onclick="clearIngredients()">Clear All</button>
+            </div>
+        </div>
+
+        <div id="loadingSection" class="loading" style="display: none;">
+            <div class="spinner"></div>
+            <h3>Finding delicious recipes for you...</h3>
+        </div>
+
+        <div id="errorSection" style="display: none;"></div>
+
+        <div id="recipesSection" class="recipes-grid"></div>
+    </div>
+
+    <!-- Recipe Modal -->
+    <div id="recipeModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2 id="modalTitle">Recipe Title</h2>
+            </div>
+            <div class="modal-body">
+                <div id="recipeSummary" class="recipe-summary"></div>
+                
+                <div class="recipe-info">
+                    <div class="info-item">
+                        <div class="number" id="modalTime">0</div>
+                        <div class="label">Minutes</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="number" id="modalServings">0</div>
+                        <div class="label">Servings</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="number" id="modalPrice">$0</div>
+                        <div class="label">Cost per Serving</div>
+                    </div>
+                </div>
+
+                <div class="ingredients-section">
+                    <h3 class="section-title">🥘 Ingredients</h3>
+                    <div id="modalIngredients"></div>
+                </div>
+
+                <div class="instructions-section">
+                    <h3 class="section-title">👨‍🍳 Instructions</h3>
+                    <div id="modalInstructions"></div>
+                </div>
+
+                <div class="nutrition-section">
+                    <h3 class="section-title">📊 Nutrition (per serving)</h3>
+                    <div id="modalNutrition"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+<footer>
+    <h2>Created by <span>Abhinav Singh</span> </h2>
+    <p style="text-align: center; padding: 10px; background-color: #f8f9fa; margin-top: 20px;">
+        &copy; 2025 Recipe Finder. All rights reserved.
+    </p>
+</footer>
+</html>
